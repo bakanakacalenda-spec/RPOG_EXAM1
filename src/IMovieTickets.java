@@ -1,5 +1,10 @@
+public interface IMovieTickets  {
+    int TotalMovieSales(int[] movieTicketSales);
 
-public interface IMovieTickets {
-    double CalculateTotalTicketPrice(int numberOfTickets,double ticketPrice);
-    boolean ValidatedData(MovieTicketData movieTicketData);
+    String TopMovie(String[] movies, int[] totalSales);
+
+    public interface IMovieTicket {
+        int TotalMovieSales(int[]movieTicketSales);
+        String TopMovie(String[] movies,int[] totalSales);
+    }
 }

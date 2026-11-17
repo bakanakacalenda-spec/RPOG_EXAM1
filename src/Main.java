@@ -1,15 +1,47 @@
- //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        int[][] movieTickets = {{3000, 1500,1700},{3500, 1200,1600}};
+        String[] movies = {"Napoleon", "oppenheimer"};
+        String[] months = {"JAN", "FEB", "MAR"};
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        MovieTickets mt = new MovieTickets();
+        int[] TotalSales = new int[movies.length];
+        int topIndex = 0;
+
+        System.out.println("MOVIE TICKETS SALES REPORT - 2024");
+        System.out.printf("%n%-15s%-10s%-10s%-10s%n", " ", "JAN", "FEB", "MAR");
+        System.out.println("---------------------------------------------------------------");
+
+
+        for (int i = 0; i < movies.length; i++) {
+            System.out.printf("%-15s", movies[i]);
+
+
+            for (int j = 0; j < movieTickets[i].length; j++) {
+                System.out.printf("%-10d", movieTickets[i][j]);
+            }
+
+            System.out.println();
+            TotalSales[i] = mt.TotalMovieSales(movieTickets[i]);
+
+
         }
+        System.out.println();
+
+        for (int i = 0; i < movies.length; i++) {
+            System.out.println("Total movie ticket sales for " + movies[i] + " " + TotalSales[i]);
+        }
+
+        System.out.println();
+
+        String topMovie = mt.TopMovie(movies, TotalSales);
+        System.out.println("Top performing movie: " + topMovie);
     }
 }
+
+
+
+
+
